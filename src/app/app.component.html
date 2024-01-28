@@ -1,5 +1,28 @@
 <div>
-  <mat-slider min="1" max="5" step="0.5" value="1.5">
-    <input matSliderThumb />
-  </mat-slider>
+  <mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav>
+      <mat-nav-list (click)="sidenav.close()">
+        <a mat-list-item routerLink="home">
+          <span class="icon-with-text"><mat-icon>home</mat-icon>Home</span>
+        </a>
+        <a mat-list-item routerLink="about">
+          <span class="icon-with-text"><mat-icon>info</mat-icon>About</span>
+        </a>
+        <a mat-list-item routerLink="contact">
+          <span class="icon-with-text"
+            ><mat-icon>mail</mat-icon>Contact Us</span
+          >
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar color="primary" (click)="sidenav.open()">
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <main>
+      <h4>Routes Result</h4>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-container>
 </div>
